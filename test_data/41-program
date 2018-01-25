@@ -1,0 +1,9 @@
+---
+a <- read_list
+b <- read_list
+c <- read_int
+d <- count <0 b
+e <- access c a
+f <- drop e a
+g <- take d f
+---

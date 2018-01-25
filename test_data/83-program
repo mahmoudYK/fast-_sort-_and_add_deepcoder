@@ -1,0 +1,9 @@
+---
+a <- read_list
+b <- read_int
+c <- read_list
+d <- access b a
+e <- take d a
+f <- drop d e
+g <- zip_with * c f
+---

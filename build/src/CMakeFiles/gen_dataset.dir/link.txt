@@ -1,0 +1,1 @@
+/usr/bin/c++      CMakeFiles/gen_dataset.dir/generate_dataset.cc.o  -o gen_dataset -rdynamic ../lib/libdeepcoder.a -lpthread 

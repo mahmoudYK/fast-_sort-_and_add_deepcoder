@@ -1,0 +1,6 @@
+---
+a <- read_list
+b <- read_list
+c <- sum a
+d <- take c b
+---

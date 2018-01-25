@@ -1,0 +1,7 @@
+---
+a <- read_int
+b <- read_list
+c <- read_list
+d <- zip_with MAX c b
+e <- take a d
+---

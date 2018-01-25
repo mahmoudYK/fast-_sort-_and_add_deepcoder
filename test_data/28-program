@@ -1,0 +1,8 @@
+---
+a <- read_list
+b <- read_list
+c <- read_list
+d <- zip_with * c b
+e <- sum d
+f <- take e a
+---

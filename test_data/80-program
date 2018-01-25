@@ -1,0 +1,9 @@
+---
+a <- read_int
+b <- read_list
+c <- read_list
+d <- zip_with + c b
+e <- access a d
+f <- drop e d
+g <- maximum f
+---

@@ -1,0 +1,8 @@
+---
+a <- read_list
+b <- read_list
+c <- sort a
+d <- scanl1 - c
+e <- zip_with * b b
+f <- zip_with * e d
+---

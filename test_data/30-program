@@ -1,0 +1,8 @@
+---
+a <- read_int
+b <- read_list
+c <- map /4 b
+d <- scanl1 + b
+e <- zip_with * d c
+f <- access a e
+---

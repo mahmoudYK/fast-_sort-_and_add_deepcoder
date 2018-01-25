@@ -1,0 +1,8 @@
+---
+a <- read_list
+b <- read_list
+c <- read_list
+d <- minimum b
+e <- access d c
+f <- drop e a
+---

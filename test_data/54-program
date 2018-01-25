@@ -1,0 +1,7 @@
+---
+a <- read_list
+b <- head a
+c <- take b a
+d <- zip_with + c a
+e <- last d
+---

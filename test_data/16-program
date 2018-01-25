@@ -1,0 +1,6 @@
+---
+a <- read_list
+b <- read_list
+c <- zip_with - b a
+d <- minimum c
+---

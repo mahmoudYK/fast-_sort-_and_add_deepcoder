@@ -1,0 +1,6 @@
+---
+a <- read_list
+b <- count %2 == 0 a
+c <- take b a
+d <- maximum c
+---

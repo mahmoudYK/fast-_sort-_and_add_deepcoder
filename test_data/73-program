@@ -1,0 +1,9 @@
+---
+a <- read_list
+b <- read_list
+c <- read_list
+d <- minimum b
+e <- zip_with MAX a c
+f <- drop d e
+g <- head f
+---

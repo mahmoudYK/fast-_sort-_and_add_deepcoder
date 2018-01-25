@@ -1,0 +1,7 @@
+---
+a <- read_list
+b <- sum a
+c <- last a
+d <- drop b a
+e <- access c d
+---

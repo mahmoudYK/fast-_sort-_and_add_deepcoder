@@ -1,0 +1,9 @@
+---
+a <- read_list
+b <- read_int
+c <- read_list
+d <- scanl1 MAX a
+e <- take b c
+f <- maximum e
+g <- take f d
+---

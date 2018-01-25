@@ -1,0 +1,5 @@
+---
+a <- read_list
+b <- sort a
+c <- map /3 b
+---

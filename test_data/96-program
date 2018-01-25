@@ -1,0 +1,9 @@
+---
+a <- read_list
+b <- read_list
+c <- read_int
+d <- map /3 b
+e <- zip_with MIN d a
+f <- drop c a
+g <- zip_with * f e
+---

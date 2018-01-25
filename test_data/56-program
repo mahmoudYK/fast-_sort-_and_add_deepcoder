@@ -1,0 +1,8 @@
+---
+a <- read_list
+b <- read_list
+c <- zip_with - a b
+d <- count <0 c
+e <- take d b
+f <- zip_with - c e
+---

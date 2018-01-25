@@ -1,0 +1,9 @@
+---
+a <- read_int
+b <- read_list
+c <- read_int
+d <- take c b
+e <- access a d
+f <- take e d
+g <- last f
+---

@@ -1,0 +1,8 @@
+---
+a <- read_list
+b <- read_list
+c <- filter >0 a
+d <- minimum b
+e <- map *3 c
+f <- access d e
+---
