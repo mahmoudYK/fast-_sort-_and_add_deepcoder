@@ -170,6 +170,7 @@ experimental::optional<Program> dfs(size_t max_length, const Attribute &attr, co
                     if (expect != actual) {
                         satisfy = false;
                         ////////////
+                        if(with_removal)
                         mk_other_trial = true;
                     }
                 }
@@ -182,7 +183,7 @@ experimental::optional<Program> dfs(size_t max_length, const Attribute &attr, co
             read_input, make_tuple(read_input.size(), true, initial_env)
     );
 
-  }while((!program_opt));
+  }while((!program_opt) && with_removal);
 
     return program_opt;
 }
