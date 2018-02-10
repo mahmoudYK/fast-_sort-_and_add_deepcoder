@@ -52,6 +52,8 @@ experimental::optional<Program> dfs(size_t max_length, const Attribute &attr, co
     }
 
     Restriction r;
+    Restriction r_wr;
+
     r.functions = all_functions;
     r.functions.erase(find(r.functions.begin(), r.functions.end(), Function::ReadList));
     r.functions.erase(find(r.functions.begin(), r.functions.end(), Function::ReadInt));
@@ -60,50 +62,7 @@ experimental::optional<Program> dfs(size_t max_length, const Attribute &attr, co
     r.two_arguments_lambda = all_two_arguments_lambdas;
     
     experimental::optional<Program> program_opt = {};
-    //zero attribute constructs
-    std::vector<dsl::Function> zero_attrib_functions;
-    std::vector<dsl::PredicateLambda> zero_attrib_predicate_lambda;
-    std::vector<dsl::OneArgumentLambda> zero_attrib_one_argument_lambda;
-    std::vector<dsl::TwoArgumentsLambda> zero_attrib_two_arguments_lambda;
-    //////////////////////////////////////////////////////////////////////
-        
 
-    //remove the dsl constructs with attribute = 0 if specified by with_removal
-    // do{
-    ///////////////////////////////////////////////////////////
-      if(with_removal /*&& trial_num == 0*/){    
-    
-        for(auto f: attr.function_presence){
-           if(f.second == 0){
-              zero_attrib_functions.push_back(f.first); 
-              r.functions.erase(find(r.functions.begin(), r.functions.end(), f.first));
-              //cerr << "removed: "<< stringify(f.first) <<" pesence = "<< f.second <<endl;
-           }
-         }
-         //cout<<"size after removal= "<<r.functions.size()<<endl;
-         for(auto p: attr.predicate_presence){
-           if(p.second == 0){
-              zero_attrib_predicate_lambda.push_back(p.first); 
-              r.predicates.erase(find(r.predicates.begin(), r.predicates.end(), p.first));
-           }
-         }     
-         for(auto l1: attr.one_argument_lambda_presence){
-           if(l1.second == 0){
-              zero_attrib_one_argument_lambda.push_back(l1.first); 
-              r.one_argument_lambda.erase(find(r.one_argument_lambda.begin(), r.one_argument_lambda.end(), l1.first));
-           }
-         }
-         for(auto l2: attr.two_arguments_lambda_presence){
-           if(l2.second == 0){
-              zero_attrib_two_arguments_lambda.push_back(l2.first); 
-              r.two_arguments_lambda.erase(find(r.two_arguments_lambda.begin(), r.two_arguments_lambda.end(), l2.first));
-           }
-         } 
-
-     }
-
-    // ++trial_num;
-    //////////////////////////////////////////////////////////
 
     sort(r.functions.begin(), r.functions.end(), [&](auto f1, auto f2) {
         return attr.function_presence.at(f1) > attr.function_presence.at(f2);
@@ -120,7 +79,41 @@ experimental::optional<Program> dfs(size_t max_length, const Attribute &attr, co
     r.min_length = read_input.size() + 1;
     r.max_length = read_input.size() + max_length;
 
-    vector<Environment> initial_env;
+    r_wr = r;
+    ////////////////////////////////////////
+    if(with_removal){
+
+            for(auto f: attr.function_presence){
+               if(f.second < 0.0001){
+                 // zero_attrib_functions.push_back(f.first);
+                  r_wr.functions.erase(find(r_wr.functions.begin(), r_wr.functions.end(), f.first));
+                  //cerr << "removed: "<< stringify(f.first) <<" pesence = "<< f.second <<endl;
+               }
+             }
+             //cout<<"size after removal= "<<r.functions.size()<<endl;
+             for(auto p: attr.predicate_presence){
+               if(p.second < 0.0001){
+                 // zero_attrib_predicate_lambda.push_back(p.first);
+                  r_wr.predicates.erase(find(r_wr.predicates.begin(), r_wr.predicates.end(), p.first));
+               }
+             }
+             for(auto l1: attr.one_argument_lambda_presence){
+               if(l1.second < 0.0001){
+                //  zero_attrib_one_argument_lambda.push_back(l1.first);
+                  r_wr.one_argument_lambda.erase(find(r_wr.one_argument_lambda.begin(), r_wr.one_argument_lambda.end(), l1.first));
+               }
+             }
+             for(auto l2: attr.two_arguments_lambda_presence){
+               if(l2.second  < 0.0001){
+                 // zero_attrib_two_arguments_lambda.push_back(l2.first);
+                  r_wr.two_arguments_lambda.erase(find(r_wr.two_arguments_lambda.begin(), r_wr.two_arguments_lambda.end(), l2.first));
+               }
+             }
+
+         }
+    ///////////////////////////////////////////
+
+    vector<Environment> initial_env; //contains the input and the <variable,value> map for all i/o examples
     initial_env.reserve(examples.size());
     for (auto i = 0; i < examples.size(); i++) {
         auto example = examples.at(i);
@@ -137,22 +130,9 @@ experimental::optional<Program> dfs(size_t max_length, const Attribute &attr, co
         initial_env.push_back(e);
     }
 
-    do{
-     
-     ///////////////////////////
-     if(mk_other_trial){
-     if(!zero_attrib_functions.empty()) 
-     {r.functions.insert(r.functions.end(),zero_attrib_functions.begin(),zero_attrib_functions.end());zero_attrib_functions.clear();}   
-     if(!zero_attrib_predicate_lambda.empty())
-     {r.predicates.insert(r.predicates.end(),zero_attrib_predicate_lambda.begin(),zero_attrib_predicate_lambda.end());zero_attrib_predicate_lambda.clear();}
-     if(!zero_attrib_one_argument_lambda.empty())
-     {r.one_argument_lambda.insert(r.one_argument_lambda.end(),zero_attrib_one_argument_lambda.begin(),zero_attrib_one_argument_lambda.end());zero_attrib_one_argument_lambda.clear();}
-     if(!zero_attrib_two_arguments_lambda.empty())
-     {r.two_arguments_lambda.insert(r.two_arguments_lambda.end(),zero_attrib_two_arguments_lambda.begin(),zero_attrib_two_arguments_lambda.end());zero_attrib_two_arguments_lambda.clear(); }
-     }     
-     ///////////////////////////
+   if(with_removal){
     enumerate(
-            r, mk_calc_info(),
+            r_wr, mk_calc_info(),
             [&](const Program &p, const tuple<int, bool, vector<Environment>> &info) {
                 auto index = get<0>(info);
                 auto isValid = get<1>(info);
@@ -169,9 +149,7 @@ experimental::optional<Program> dfs(size_t max_length, const Attribute &attr, co
 
                     if (expect != actual) {
                         satisfy = false;
-                        ////////////
-                        if(with_removal)
-                        mk_other_trial = true;
+
                     }
                 }
 
@@ -182,9 +160,43 @@ experimental::optional<Program> dfs(size_t max_length, const Attribute &attr, co
             },
             read_input, make_tuple(read_input.size(), true, initial_env)
     );
+    if(program_opt){
+    	   return program_opt;
+       }
+    else{
+    	cerr << "wremoval: not found" <<endl;
+    }
+   }
 
-  }while((!program_opt) && with_removal);
+   enumerate(
+               r, mk_calc_info(),
+               [&](const Program &p, const tuple<int, bool, vector<Environment>> &info) {
+                   auto index = get<0>(info);
+                   auto isValid = get<1>(info);
+                   auto env = get<2>(info);
 
+                   if (!isValid) {
+                       return true;
+                   }
+
+                   bool satisfy = true;
+                   for (auto i = 0; i < examples.size(); i++) {
+                       auto expect = examples.at(i).output;
+                       auto actual = env.at(i).variables.find(p.back().variable)->second;
+
+                       if (expect != actual) {
+                           satisfy = false;
+
+                       }
+                   }
+
+                   if (satisfy) {
+                       program_opt = p;
+                   }
+                   return !satisfy;
+               },
+               read_input, make_tuple(read_input.size(), true, initial_env)
+       );
     return program_opt;
 }
 
