@@ -1,9 +1,0 @@
----
-a <- read_list
-b <- read_list
-c <- read_int
-d <- reverse b
-e <- access c d
-f <- take e a
-g <- map /2 f
----

@@ -1,9 +1,0 @@
----
-a <- read_list
-b <- read_int
-c <- read_list
-d <- last c
-e <- drop b a
-f <- map /4 e
-g <- take d f
----

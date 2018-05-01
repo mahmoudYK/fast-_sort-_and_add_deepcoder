@@ -1,7 +1,0 @@
----
-a <- read_list
-b <- read_list
-c <- minimum a
-d <- zip_with MAX b a
-e <- drop c d
----

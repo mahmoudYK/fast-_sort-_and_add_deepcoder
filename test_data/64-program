@@ -1,9 +1,0 @@
----
-a <- read_list
-b <- read_int
-c <- read_int
-d <- map +1 a
-e <- drop c d
-f <- take b e
-g <- last f
----

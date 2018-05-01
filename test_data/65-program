@@ -1,7 +1,0 @@
----
-a <- read_list
-b <- last a
-c <- access b a
-d <- reverse a
-e <- access c d
----

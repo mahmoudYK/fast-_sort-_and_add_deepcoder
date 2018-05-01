@@ -1,9 +1,0 @@
----
-a <- read_int
-b <- read_list
-c <- read_list
-d <- zip_with * b b
-e <- take a c
-f <- zip_with * e d
-g <- scanl1 * f
----

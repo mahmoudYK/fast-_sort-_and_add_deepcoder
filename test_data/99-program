@@ -1,9 +1,0 @@
----
-a <- read_int
-b <- read_list
-c <- read_list
-d <- access a c
-e <- access a b
-f <- take d c
-g <- take e f
----

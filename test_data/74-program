@@ -1,9 +1,0 @@
----
-a <- read_int
-b <- read_list
-c <- read_int
-d <- drop a b
-e <- access c d
-f <- take e b
-g <- maximum f
----

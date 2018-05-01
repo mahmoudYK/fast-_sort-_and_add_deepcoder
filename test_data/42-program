@@ -1,7 +1,0 @@
----
-a <- read_list
-b <- filter >0 a
-c <- sort b
-d <- zip_with MAX b c
-e <- reverse d
----

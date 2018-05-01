@@ -1,9 +1,0 @@
----
-a <- read_int
-b <- read_int
-c <- read_list
-d <- drop b c
-e <- map -1 d
-f <- access a e
-g <- access f e
----

@@ -1,9 +1,0 @@
----
-a <- read_list
-b <- read_list
-c <- read_int
-d <- access c a
-e <- access d b
-f <- scanl1 - a
-g <- access e f
----

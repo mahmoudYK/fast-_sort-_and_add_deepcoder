@@ -1,6 +1,0 @@
----
-a <- read_list
-b <- read_int
-c <- take b a
-d <- sum c
----

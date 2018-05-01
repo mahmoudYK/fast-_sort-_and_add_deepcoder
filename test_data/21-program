@@ -1,7 +1,0 @@
----
-a <- read_list
-b <- read_list
-c <- minimum a
-d <- sort b
-e <- access c d
----

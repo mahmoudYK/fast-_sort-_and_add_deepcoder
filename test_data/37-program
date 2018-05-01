@@ -1,9 +1,0 @@
----
-a <- read_list
-b <- read_list
-c <- read_int
-d <- drop c b
-e <- scanl1 MAX d
-f <- reverse e
-g <- zip_with * f a
----

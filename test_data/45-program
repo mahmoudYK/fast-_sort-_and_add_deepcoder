@@ -1,9 +1,0 @@
----
-a <- read_list
-b <- read_list
-c <- read_list
-d <- zip_with * c a
-e <- scanl1 MIN b
-f <- sum d
-g <- drop f e
----

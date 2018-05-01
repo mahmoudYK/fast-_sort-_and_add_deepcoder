@@ -1,8 +1,0 @@
----
-a <- read_int
-b <- read_list
-c <- scanl1 - b
-d <- access a b
-e <- drop d c
-f <- zip_with MAX e e
----

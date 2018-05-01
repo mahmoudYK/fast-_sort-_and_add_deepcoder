@@ -1,7 +1,0 @@
----
-a <- read_list
-b <- last a
-c <- drop b a
-d <- last c
-e <- drop d c
----

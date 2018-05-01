@@ -1,4 +1,0 @@
----
-a <- read_list
-b <- map /4 a
----

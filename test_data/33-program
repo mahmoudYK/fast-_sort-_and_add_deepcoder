@@ -1,8 +1,0 @@
----
-a <- read_list
-b <- read_int
-c <- take b a
-d <- minimum a
-e <- drop d c
-f <- maximum e
----

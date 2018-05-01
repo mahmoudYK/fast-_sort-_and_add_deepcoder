@@ -1,8 +1,0 @@
----
-a <- read_list
-b <- read_int
-c <- filter %2 == 1 a
-d <- sum a
-e <- take d c
-f <- access b e
----

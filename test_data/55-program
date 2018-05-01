@@ -1,9 +1,0 @@
----
-a <- read_list
-b <- read_list
-c <- read_int
-d <- zip_with MIN a b
-e <- drop c d
-f <- drop c e
-g <- map *2 f
----

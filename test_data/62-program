@@ -1,9 +1,0 @@
----
-a <- read_int
-b <- read_list
-c <- read_int
-d <- scanl1 - b
-e <- take a d
-f <- drop c e
-g <- head f
----

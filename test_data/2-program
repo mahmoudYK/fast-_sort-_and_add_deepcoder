@@ -1,4 +1,0 @@
----
-a <- read_list
-b <- filter %2 == 1 a
----

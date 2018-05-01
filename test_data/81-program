@@ -1,9 +1,0 @@
----
-a <- read_list
-b <- read_int
-c <- read_list
-d <- filter %2 == 0 c
-e <- filter <0 d
-f <- access b e
-g <- drop f a
----

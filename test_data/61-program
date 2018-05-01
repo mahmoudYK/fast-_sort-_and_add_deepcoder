@@ -1,9 +1,0 @@
----
-a <- read_list
-b <- read_list
-c <- read_int
-d <- drop c b
-e <- zip_with + a d
-f <- reverse e
-g <- access c f
----

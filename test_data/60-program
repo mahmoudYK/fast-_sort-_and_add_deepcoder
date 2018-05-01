@@ -1,7 +1,0 @@
----
-a <- read_list
-b <- zip_with MAX a a
-c <- reverse a
-d <- zip_with MIN b c
-e <- head d
----

@@ -1,9 +1,0 @@
----
-a <- read_int
-b <- read_list
-c <- read_int
-d <- take a b
-e <- reverse d
-f <- take c e
-g <- scanl1 - f
----

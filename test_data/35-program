@@ -1,9 +1,0 @@
----
-a <- read_list
-b <- read_int
-c <- read_list
-d <- take b a
-e <- map *(-1) d
-f <- sum e
-g <- access f c
----

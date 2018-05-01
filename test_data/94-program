@@ -1,8 +1,0 @@
----
-a <- read_int
-b <- read_list
-c <- filter %2 == 1 b
-d <- drop a c
-e <- sort d
-f <- minimum e
----

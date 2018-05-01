@@ -1,9 +1,0 @@
----
-a <- read_int
-b <- read_list
-c <- read_int
-d <- head b
-e <- take d b
-f <- take a e
-g <- drop c f
----

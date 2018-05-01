@@ -1,1 +1,0 @@
-/usr/bin/c++      CMakeFiles/gen_testdata.dir/generate_testdata.cc.o  -o gen_testdata -rdynamic ../lib/libdeepcoder.a -lpthread 

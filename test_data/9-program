@@ -1,5 +1,0 @@
----
-a <- read_list
-b <- read_list
-c <- zip_with MAX a b
----

@@ -1,8 +1,0 @@
----
-a <- read_list
-b <- read_int
-c <- filter %2 == 0 a
-d <- zip_with + c c
-e <- zip_with MIN d d
-f <- take b e
----

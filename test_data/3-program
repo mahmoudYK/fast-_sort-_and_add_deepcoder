@@ -1,4 +1,0 @@
----
-a <- read_list
-b <- minimum a
----

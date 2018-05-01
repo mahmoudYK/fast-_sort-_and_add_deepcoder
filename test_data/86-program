@@ -1,9 +1,0 @@
----
-a <- read_list
-b <- read_list
-c <- read_int
-d <- drop c b
-e <- reverse d
-f <- count >0 e
-g <- take f a
----

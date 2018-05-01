@@ -1,8 +1,0 @@
----
-a <- read_list
-b <- read_int
-c <- read_list
-d <- take b a
-e <- zip_with MIN d c
-f <- sort e
----

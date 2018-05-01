@@ -1,9 +1,0 @@
----
-a <- read_int
-b <- read_int
-c <- read_list
-d <- drop b c
-e <- take a d
-f <- count %2 == 0 e
-g <- access f e
----

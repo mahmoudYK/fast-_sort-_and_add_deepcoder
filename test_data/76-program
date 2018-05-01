@@ -1,8 +1,0 @@
----
-a <- read_int
-b <- read_list
-c <- map **2 b
-d <- access a b
-e <- take d c
-f <- minimum e
----

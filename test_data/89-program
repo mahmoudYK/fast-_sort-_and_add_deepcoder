@@ -1,9 +1,0 @@
----
-a <- read_list
-b <- read_int
-c <- read_list
-d <- zip_with + c a
-e <- take b a
-f <- maximum e
-g <- drop f d
----
