@@ -1,0 +1,9 @@
+---
+a <- read_list
+b <- read_int
+c <- read_list
+d <- take b c
+e <- zip_with - d c
+f <- head e
+g <- access f a
+---

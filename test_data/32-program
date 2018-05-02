@@ -1,0 +1,9 @@
+---
+a <- read_list
+b <- read_list
+c <- read_list
+d <- last c
+e <- take d b
+f <- count %2 == 1 e
+g <- drop f a
+---

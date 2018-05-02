@@ -1,0 +1,4 @@
+---
+a <- read_list
+b <- map +1 a
+---

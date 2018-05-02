@@ -1,0 +1,9 @@
+---
+a <- read_int
+b <- read_int
+c <- read_list
+d <- map *(-1) c
+e <- take b c
+f <- take a e
+g <- zip_with + d f
+---

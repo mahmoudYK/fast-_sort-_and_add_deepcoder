@@ -1,0 +1,8 @@
+---
+a <- read_list
+b <- read_list
+c <- maximum b
+d <- minimum a
+e <- drop d a
+f <- drop c e
+---

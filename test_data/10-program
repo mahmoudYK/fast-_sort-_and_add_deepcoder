@@ -1,0 +1,5 @@
+---
+a <- read_list
+b <- count >0 a
+c <- access b a
+---

@@ -1,0 +1,6 @@
+---
+a <- read_list
+b <- read_int
+c <- scanl1 MIN a
+d <- drop b c
+---

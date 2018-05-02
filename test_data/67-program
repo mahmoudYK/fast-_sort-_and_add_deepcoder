@@ -1,0 +1,8 @@
+---
+a <- read_list
+b <- read_list
+c <- zip_with - a b
+d <- zip_with - c a
+e <- last d
+f <- access e a
+---

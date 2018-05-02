@@ -1,0 +1,7 @@
+---
+a <- read_list
+b <- read_int
+c <- read_int
+d <- drop b a
+e <- drop c d
+---

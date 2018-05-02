@@ -1,0 +1,6 @@
+---
+a <- read_list
+b <- minimum a
+c <- map *(-1) a
+d <- take b c
+---

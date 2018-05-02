@@ -1,0 +1,8 @@
+---
+a <- read_list
+b <- read_list
+c <- scanl1 MAX b
+d <- minimum a
+e <- map +1 c
+f <- take d e
+---

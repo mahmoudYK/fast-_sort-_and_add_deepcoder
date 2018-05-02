@@ -1,0 +1,9 @@
+---
+a <- read_int
+b <- read_int
+c <- read_list
+d <- map *3 c
+e <- take b c
+f <- access a d
+g <- drop f e
+---
