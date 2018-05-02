@@ -291,8 +291,6 @@ experimental::optional<Program> sort_and_add(size_t max_length, const Attribute 
     }
 
     experimental::optional<Program> program_opt = {};
-     
-    unsigned counter = 0;
     cout << "function  " << stringify(funcs_queue.front()) << endl;
     r.functions.push_back(funcs_queue.front());
     funcs_queue.pop();
@@ -339,8 +337,6 @@ experimental::optional<Program> sort_and_add(size_t max_length, const Attribute 
         auto o = (one_arg_queue.empty()) ? 0 : attr.one_argument_lambda_presence.at(one_arg_queue.front());
         auto t = (two_args_queue.empty()) ? 0 : attr.two_arguments_lambda_presence.at(two_args_queue.front());
         
-        counter++;
-        cout <<counter << " f= " << f << " p = " << p << " o = " << o << " t = " << t << endl;
         if (f >= p  && f >= o && f >= t && !funcs_queue.empty())  {
             cout << "function " << " " << stringify(funcs_queue.front()) << endl;
             r.functions.push_back(funcs_queue.front());
